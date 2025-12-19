@@ -9,6 +9,13 @@ The script is designed for execution on an HPC cluster using **SLURM** and uses 
 
 FastQC output files are renamed to include the parent sample folder name, ensuring unique and traceable filenames when multiple samples or sequencing lanes are present.
 
+## Script summary
+
+1.  Recursively finds all `*.fq.gz` files under `../working/data/`.
+2.  Runs FastQC on each FASTQ file in parallel. 
+3.  Writes all FastQC outputs to a single results directory. 
+4.  Renames output files to prefix them with the sample folder name.
+
 ## Input data structure
 
 The script assumes the following directory structure:
@@ -57,3 +64,23 @@ Example:
 Modules are loaded within the script:
 `module load parallel/20230722-GCCcore-12.2.0`
 `module load FastQC/0.12.1-Java-11`
+
+
+
+
+## How to run on the cluster (SLURM)
+
+### 1) Check resource settings
+
+The script is configured to use 16 CPUs:
+`#SBATCH --cpus-per-task=16` 
+
+Ensure this matches the number of parallel FastQC jobs:
+`parallel -j 16` 
+
+
+### 2) Submit the job
+From the directory containing the script:
+`sbatch fastqc.sh` 
+
+
