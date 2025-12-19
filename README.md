@@ -11,6 +11,7 @@ The pipeline supports large sequencing panels by performing per-sample variant c
 **FASTQ → BAM → gVCF → GenomicsDB → VCF**
 
 An overview of each step is provided below. Detailed commands and execution scripts for each step are available in the corresponding Markdown files.
+Before starting the pipeline, the reference genome for the species of interest must be indexed. Instructions for reference genome indexing are provided in the Markdown file `Reference_genome_indexing.md`
 
 ##  Step 1. Quality control of raw reads
 Raw paired-end FASTQ files are inspected to assess read quality, adapter contamination, and base composition.
