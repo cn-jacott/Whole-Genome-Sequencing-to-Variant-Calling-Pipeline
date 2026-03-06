@@ -74,7 +74,7 @@ The array size must match the number of chromosomes defined in the script:
 ### 2) Submit the job
 
 From the directory containing the script:
-`sbatch haplotype_caller.sh` 
+`sbatch Step3_HaplotypeCaller.sh` 
 
 Log files are generated per chromosome:
 -   `gatk_haplotype_<jobID>_<taskID>.log`
