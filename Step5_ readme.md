@@ -70,7 +70,7 @@ CHUNK=10000000
 MAX_CONCURRENT=6
 ```
 ### 2) Submit the wrapper script
-`bash genotype_genDB_chunks_order.sh`
+`bash Step5_Joint:genotype.sh`
 
 This script automatically submits:
 -   one **array job** for `GenotypeGVCFs`    
