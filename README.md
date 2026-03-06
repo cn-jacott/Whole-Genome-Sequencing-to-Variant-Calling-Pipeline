@@ -18,6 +18,7 @@ Raw paired-end FASTQ files are inspected to assess read quality, adapter contami
 
 **Input:** Paired-end read files (`*.fastq.gz`)
 **Output:** QC reports (FastQC, optionally MultiQC)
+
 **Tools:** FastQC
 
 ## Step 2. Read alignment to the reference genome
@@ -51,10 +52,18 @@ Joint genotyping is performed on each chromosome using the corresponding Genomic
 **Tools:** GATK `GenotypeGVCFs`
 
 
-## Step 6. VCF merging and variant filtering
+## Step 6. Basic variant filtering
 
-Jointly genotyped VCF files from individual chromosomes are merged to generate genome-wide VCF files. Variant-level filtering is applied to remove low-quality sites using hard filters or downstream filtering criteria, depending on the study design.
+Variant-level filtering is applied to remove low-quality sites using hard filters or downstream filtering criteria, depending on the study design.
 
 **Input:** Per-chromosome joint VCF files   (`*.vcf.gz`, `*.tbi`)  
+**Output:** Per-chromosome filtered VCF files   (`*.vcf.gz`, `*.tbi`)  
+**Tools:** GATK
+
+## Step 7. Concatenate into one VCF 
+
+Basic filtered jointly genotyped VCF files from individual chromosomes are merged to generate genome-wide VCF files.
+
+**Input:** Filtered per-chromosome joint VCF files   (`*.vcf.gz`, `*.tbi`)  
 **Output:** Genome-wide filtered VCF files   (`*.vcf.gz`, `*.tbi`)  
-**Tools:** GATK, bcftools
+**Tools:** bcftools
