@@ -14,9 +14,9 @@ Reference indexing only needs to be performed **once per reference genome**.
 
 Create the BWA index files required for read alignment:
 
-`module load BWA/0.7.17-GCCcore-12.2.0
+`module load BWA/0.7.17-GCCcore-12.2.0`
 
-bwa index glyma.Wm82.gnm6.S97D.genome_main.fna` 
+`bwa index glyma.Wm82.gnm6.S97D.genome_main.fna` 
 
 This command generates the following index files:
 
@@ -31,9 +31,9 @@ This command generates the following index files:
 
 Create the FASTA index required by SAMtools and GATK:
 
-`module load SAMtools/1.17-GCC-12.2.0
+`module load SAMtools/1.17-GCC-12.2.0`
 
-samtools faidx glyma.Wm82.gnm6.S97D.genome_main.fna` 
+`samtools faidx glyma.Wm82.gnm6.S97D.genome_main.fna` 
 
 This generates:
 
