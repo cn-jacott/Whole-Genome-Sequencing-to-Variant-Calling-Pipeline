@@ -58,7 +58,7 @@ unset IFS
 for f in "${files[@]}"; do
   [[ -f "${f}.tbi" ]] || { echo "[ERROR] Missing index for $f (expected ${f}.tbi)"; exit 1; }
   bn=$(basename "$f")
-  sample="${bn%.g.vcf.gz}"
+  sample=$(basename "$f" | cut -d'_' -f1-2)
   printf "%s\t%s\n" "$sample" "$f" >> "$tmp_map"
 done
 
