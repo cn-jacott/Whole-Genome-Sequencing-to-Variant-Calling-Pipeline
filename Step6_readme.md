@@ -31,7 +31,7 @@ The workflow extracts the selected variant type, applies **GATK VariantFiltratio
 ## Outputs
 
 Written to
-`../../working/vcfs/gatk_filtered/`
+`../../working/vcfs/basic_gatk_filtered/`
 
 Output files depend on the selected variant type:
 SNP output: `<GM>_snps_PASS.vcf.gz`
