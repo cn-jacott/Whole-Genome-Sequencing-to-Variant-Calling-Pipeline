@@ -81,6 +81,6 @@ Ensure this matches the number of parallel FastQC jobs:
 
 ### 2) Submit the job
 From the directory containing the script:
-`sbatch fastqc.sh` 
+`sbatch Step1_FastQC.sh` 
 
 
