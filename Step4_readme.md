@@ -20,31 +20,22 @@ This step prepares the input files required by `GenomicsDBImport` for one chromo
 ### Script summary
 
 1.  Defines the chromosome to process
-
-3.  Defines the chunk size
-    
-4.  Builds a **sample map** from chromosome-specific gVCF files
-    
-5.  Retrieves chromosome length from the reference `.fai`
-    
-6.  Generates a list of genomic **intervals**
+2.  Defines the chunk size 
+3.  Builds a **sample map** from chromosome-specific gVCF files
+4.  Retrieves chromosome length from the reference `.fai`  
+5.  Generates a list of genomic **intervals**
     
 
 ### Inputs
 -   Chromosome-specific gVCFs   `../working/<GM>/*.g.vcf.gz`
-    
 -   Reference genome    `../ref/glyma.Wm82.gnm6.S97D.genome_main.fna`
     
 
 ### Outputs
 
-Written to:
-`../working/genomicsDB/genomicsdb_<GM>/`
-- sample map
-`sample_map_<GM>.txt`
-
-- intervals list
-`<GM>_<CHUNK>.intervals.list`
+Written to: `../working/genomicsDB/genomicsdb_<GM>/`
+- sample map `sample_map_<GM>.txt`
+- intervals list `<GM>_<CHUNK>.intervals.list`
     
 
 ### Sample map format
@@ -52,55 +43,41 @@ Written to:
 `sample_name    /path/to/sample.g.vcf.gz`
 
 Example:
-
 ```text
-sample_1    ../working/Gm18/sample_1.g.vcf.gz
-sample_2    ../working/Gm18/sample_2.g.vcf.gz
-sample_3    ../working/Gm18/sample_3.g.vcf.gz
+sample_1    ../working/Gm01/sample_1.g.vcf.gz
+sample_2    ../working/Gm01/sample_2.g.vcf.gz
+sample_3    ../working/Gm01/sample_3.g.vcf.gz
 ```
 
 ## Tools / modules
 
--   **Python** – interval generation
-    
+-   **Python** – interval generation    
 -   **SLURM workload manager**
 
 ## How to run on the cluster (SLURM)
 
-`sbatch prep_gendb_Gm18.sh`
+`sbatch Step4a_GenomicsDB_prep.sh`
 
 ---
 ## Step 4b 
 ### Script summary
 
 1.  Defines the chromosome and chunk size
-    
 2.  Reads the **sample map**
-    
 3.  Reads the **interval list**
-    
 4.  Assigns one interval per SLURM task
-    
 5.  Runs `GenomicsDBImport`
 6.  Creates one GenomicsDB workspace per interval
 
 ### Inputs
--   Sample map and intervals list from Step 4a  
-    `sample_map_<GM>.txt`
-    `<GM>_<CHUNK>.intervals.list`
-
-
+-   Sample map and intervals list from Step 4a   `sample_map_<GM>.txt`  `<GM>_<CHUNK>.intervals.list`
 -   gVCFs from Step 3 
--   Reference genome
-      `../ref/glyma.Wm82.gnm6.S97D.genome_main.fna`
+-   Reference genome:  `../ref/glyma.Wm82.gnm6.S97D.genome_main.fna`
 
 ### Outputs
 
-Written to:
-`../working/genomicsDB/genomicsdb_<GM>/`
-
-Example workspace:
-`gendb_Gm18_1_10000000/`
+Written to: `../working/genomicsDB/genomicsdb_<GM>/`
+Example workspace: `gendb_Gm01_1_10000000/`
 
 ## Tools / modules
 
@@ -119,4 +96,4 @@ The number of tasks must match the number of intervals:
 `#SBATCH --array=1-6`
 
 ### 2) Submit the job 
-`sbatch genomicsdb_import_Gm18.sh`
+`sbatch Step4b_GenomeicsDBImport.sh`
