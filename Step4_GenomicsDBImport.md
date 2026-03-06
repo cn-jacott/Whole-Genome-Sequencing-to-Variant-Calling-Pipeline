@@ -1,3 +1,4 @@
+
 ## ## Step 4. GenomicsDBImport per chromosome
 
 ## Description
@@ -7,6 +8,8 @@ To reduce memory usage and improve parallelization on HPC systems, the import is
 
 -   **Step 4a** – prepare the **sample map** and **interval list**
 -   **Step 4b** – run `GenomicsDBImport` per interval using a **SLURM array job**
+
+---
 
 ##  ## Step 4a. Prepare sample map and interval list
 
@@ -28,17 +31,14 @@ This step prepares the input files required by `GenomicsDBImport` for one chromo
     
 
 ### Inputs
--   Chromosome-specific gVCFs  
-    `../working/<GM>/*.g.vcf.gz`
+-   Chromosome-specific gVCFs   `../working/<GM>/*.g.vcf.gz`
     
--   Reference genome  
-    `../ref/glyma.Wm82.gnm6.S97D.genome_main.fna`
+-   Reference genome    `../ref/glyma.Wm82.gnm6.S97D.genome_main.fna`
     
 
 ### Outputs
 
 Written to:
-
 `../working/genomicsDB/genomicsdb_<GM>/`
 - sample map
 `sample_map_<GM>.txt`
@@ -59,10 +59,17 @@ sample_2    ../working/Gm18/sample_2.g.vcf.gz
 sample_3    ../working/Gm18/sample_3.g.vcf.gz
 ```
 
-### Run
+## Tools / modules
+
+-   **Python** – interval generation
+    
+-   **SLURM workload manager**
+
+## How to run on the cluster (SLURM)
 
 `sbatch prep_gendb_Gm18.sh`
 
+---
 ## Step 4b 
 ### Script summary
 
@@ -90,19 +97,26 @@ sample_3    ../working/Gm18/sample_3.g.vcf.gz
 ### Outputs
 
 Written to:
-
 `../working/genomicsDB/genomicsdb_<GM>/`
 
 Example workspace:
-
 `gendb_Gm18_1_10000000/`
 
-### Run
+## Tools / modules
 
-Set the array size equal to the number of intervals:
+-   **GATK v4.5.0.0**
+-   **SLURM workload manager**
+    
 
- `#SBATCH --array=1-6 `
+Modules loaded in the script:
+`module load GATK/4.5.0.0-GCCcore-12.3.0-Java-17`
 
-Submit:
+## How to run on the cluster (SLURM)
 
- `sbatch genomicsdb_import_Gm18.sh `
+### 1) Set the array size
+
+The number of tasks must match the number of intervals:
+`#SBATCH --array=1-6`
+
+### 2) Submit the job 
+`sbatch genomicsdb_import_Gm18.sh`
