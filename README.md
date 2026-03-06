@@ -57,4 +57,4 @@ Jointly genotyped VCF files from individual chromosomes are merged to generate g
 
 **Input:** Per-chromosome joint VCF files   (`*.vcf.gz`, `*.tbi`)  
 **Output:** Genome-wide filtered VCF files   (`*.vcf.gz`, `*.tbi`)  
-**Tools:** GATK, bcftoolses and filter
+**Tools:** GATK, bcftools
