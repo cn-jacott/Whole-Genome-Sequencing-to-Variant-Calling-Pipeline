@@ -31,11 +31,11 @@ The workflow extracts the selected variant type, applies **GATK VariantFiltratio
 ## Outputs
 
 Written to
-`../../working/vcfs/gmax_gatk_filtered/`
+`../../working/vcfs/gatk_filtered/`
 
 Output files depend on the selected variant type:
 SNP output: `<GM>_snps_PASS.vcf.gz`
-INDEL output:`<GM>_GATK_indels_PASS.vcf.gz`
+INDEL output:`<GM>_indels_PASS.vcf.gz`
 
 Example for chromosome 1:
 `Gm01_snps_PASS.vcf.gz`  
