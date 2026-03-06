@@ -11,8 +11,8 @@ MAX_CONCURRENT=6
 REFERENCE="../ref/glyma.Wm82.gnm6.S97D.genome_main.fna"
 DBDIR="../working/genomicsDB/genomicsdb_${GM}"
 INTERVALS_FILE="${DBDIR}/${GM}_${CHUNK}.intervals.list"
-OUTDIR="../working/genotype/genotyped_chunks_${GM}_${CHUNK}"
-FINAL_VCF="../working/genotype/${GM}_genotyped_chunks.vcf.gz"
+OUTDIR="../working/joint_genotype/genotyped_chunks_${GM}_${CHUNK}"
+FINAL_VCF="../working/joint_genotype/${GM}_genotyped_chunks.vcf.gz"
 
 mkdir -p "$OUTDIR"
 
