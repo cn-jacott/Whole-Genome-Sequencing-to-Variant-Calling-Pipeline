@@ -83,7 +83,7 @@ To count sample directories:
 
 ### 2) Submit the job
 From the directory containing the script:
-`sbatch bwa_lanes.sh` 
+`sbatch Step2_BWA.sh` 
 
 Job-specific log files will be generated for each array task:
 -   `bwa_<jobID>_<taskID>.log`
