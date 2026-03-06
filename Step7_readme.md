@@ -21,10 +21,10 @@ Concatenation is performed after chromosome-level filtering to improve performan
 
 Chromosome-level VCF files:
 ```text
-../../working/vcfs/gmax_gwas_ready/Gm01_snps_PASS.vcf.gz 
-../../working/vcfs/gmax_gwas_ready/Gm02_snps_PASS.vcf.gz  
+../../working/vcfs/Gm01_snps_PASS.vcf.gz 
+../../working/vcfs/Gm02_snps_PASS.vcf.gz  
 ...  
-../../working/vcfs/gmax_gwas_ready/Gm20_snps_PASS.vcf.gz 
+../../working/vcfs/Gm20_snps_PASS.vcf.gz 
 ```
 
 ## Outputs
