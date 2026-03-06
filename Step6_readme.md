@@ -78,3 +78,15 @@ VARIANT_TYPE="snps"  # options: snps or indels
 ### 2) Submit the job
 
 `sbatch filter_variants_Gm01.sh`
+
+
+## Notes
+
+Depending on the dataset and downstream analysis, additional filtering steps can be applied at the chromosome level before merging, for example:
+
+-   retaining only **polymorphic SNPs**
+-   filtering by **minor allele frequency (MAF)**
+-   removing variants with **high missingness**    
+-   applying **depth or genotype quality filters**
+    
+Applying these filters before concatenating chromosomes (Step 7) can significantly **reduce runtime and improve scalability**, especially for large datasets.
