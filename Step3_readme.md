@@ -32,27 +32,24 @@ The script is implemented as a **SLURM array job**, where each array task proces
 
 For each sample and chromosome:
 
--   gVCF file:  
-    `<SAMPLE>_<REGION>.g.vcf.gz`
+-   gVCF file:   `<SAMPLE>_<REGION>.g.vcf.gz`
     
--   gVCF index:  
-    `<SAMPLE>_<REGION>.g.vcf.gz.tbi`
+-   gVCF index:    <SAMPLE>_<REGION>.g.vcf.gz.tbi`
     
 
-Example:
-`sample_1_glyma.Wm82.gnm6.Gm01:1-59600650.g.vcf.gz` 
+Example: `sample_1_glyma.Wm82.gnm6.Gm01:1-59600650.g.vcf.gz` 
 
 
 
 ## Genomic regions
 
 Variant calling is performed separately for each of the 20 soybean chromosomes using fixed genomic intervals:
-
--   `glyma.Wm82.gnm6.Gm01:1–59600650`  
--   `glyma.Wm82.gnm6.Gm02:1–54790513` 
--   …  
--   `glyma.Wm82.gnm6.Gm20:1–51026854`
-    
+```text
+glyma.Wm82.gnm6.Gm01:1–59600650  
+glyma.Wm82.gnm6.Gm02:1–54790513
+…  
+glyma.Wm82.gnm6.Gm20:1–51026854
+```
 
 Each SLURM array task corresponds to **one chromosome**.
 
