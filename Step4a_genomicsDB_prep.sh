@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=prep_gendb_Gm18
-#SBATCH --output=prep_gendb_Gm18_%j.log
-#SBATCH --error=prep_gendb_Gm18_%j.err
+#SBATCH --job-name=prep_gendb_Gm01
+#SBATCH --output=prep_gendb_Gm01_%j.log
+#SBATCH --error=prep_gendb_Gm01_%j.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=8G
