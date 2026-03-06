@@ -40,7 +40,7 @@ For each sample and chromosome:
     
 
 Example:
-`1_glyma.Wm82.gnm6.Gm01:1-59600650.g.vcf.gz` 
+`sample_1_glyma.Wm82.gnm6.Gm01:1-59600650.g.vcf.gz` 
 
 
 
